@@ -16,6 +16,8 @@ public class Rocket
     private float airFreshnessValue = 1;
     private float temperature = 23f;
 
+    private double timeRun = 0;
+
     public Rocket(String name, int numOfVisitors) {
         this.name = name;
         this.numOfVisitors = numOfVisitors;
@@ -84,6 +86,9 @@ public class Rocket
     }
     @Override
     public void run() {
+        if (System.currentTimeMillis() - timeRun < 2000) {
+            return;
+        }
         checkQueue();
         handlersResponse();
 
@@ -107,5 +112,16 @@ public class Rocket
 
         endGroupEntertainment();
         outputCondition();
+
+        timeRun = System.currentTimeMillis();
+    }
+
+    @Override
+    public boolean getStatement() {
+        if (waiters.size() < 48 && (visitors.size() == 0 ||
+                (visitors.size() == 1 && visitors.get(0).getHonesty() == HonestyParam.LIAR))) {
+            return false;
+        }
+        return true;
     }
 }

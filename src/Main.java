@@ -13,17 +13,8 @@ public class Main {
         r.addWatcher(new Human("Fuksia", new Suit("none")));
         r.addWatcher(new Human("Seledochka", new Suit("none")));
 
-        long timerun = System.currentTimeMillis();
-        boolean key = true;
-
-        while (key) {
-            if (System.currentTimeMillis() - timerun > 2000) {
-                r.run();
-                timerun = System.currentTimeMillis();
-            }
-            if (r.getNumOfWaiters() < 48 && r.getNumOfVisitors() <= 1) {
-                key = false;
-            }
+        while (r.getStatement()) {
+           r.run();
         }
     }
 }

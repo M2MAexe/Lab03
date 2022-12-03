@@ -67,4 +67,8 @@ public abstract class Entertainment {
                 " Questions=" + questionsBillboard.size() + " Checkers=" + entertainmentCheckers.size() +
                 " Rooms=" + entertainmentRooms.size() + " Handlers=" + entertainmentHandlers.size();
     }
+
+    public boolean getStatement() {
+        return true;
+    }
 }
