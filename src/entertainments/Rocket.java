@@ -30,7 +30,8 @@ public class Rocket
         entertainmentRooms.add(new Cabin());
     }
 
-    private void checkQueue() {
+    @Override
+    protected void checkQueue() {
         if (waiters.size() >= numOfVisitors &&
                 (visitors.size() == 0 || (visitors.size() == 1 && visitors.get(0).getHonesty() == HonestyParam.LIAR))) {
             for (int i = 0; i < numOfVisitors; i++) {
@@ -40,7 +41,8 @@ public class Rocket
         }
     }
 
-    private void handlersResponse() {
+    @Override
+    protected void handlersResponse() {
         airConditionValue -= 0.1 * Math.random();
         airFreshnessValue -= 0.1 * Math.random();
         temperature -= 0.4 * Math.random();

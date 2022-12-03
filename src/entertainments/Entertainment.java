@@ -35,14 +35,9 @@ public abstract class Entertainment {
 
     protected void outputCondition() {}
 
-    public int getNumOfWaiters() {
-        return waiters.size();
-    }
+    protected void checkQueue() {}
 
-    public int getNumOfVisitors() {
-        return visitors.size();
-    }
-
+    protected void handlersResponse() {}
     @Override
     @SuppressWarnings("all")
     public boolean equals(Object obj) {
